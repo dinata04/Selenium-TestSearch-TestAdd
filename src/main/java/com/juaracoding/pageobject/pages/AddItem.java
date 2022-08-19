@@ -14,7 +14,6 @@ public class AddItem {
 	public AddItem() {
 		this.driver = DriverSingleton.getDriver();
 		PageFactory.initElements(driver, this);
-
 	}
 	
 //	Search Item
@@ -27,9 +26,31 @@ public class AddItem {
 	@FindBy(xpath = "//span[@class='lighter']")
 	private WebElement txtSearchResult;
 	
-//	Add Item
-	@FindBy(xpath = "")
+	
+//	Add Item 1
+	@FindBy(css = ".replace-2x.img-responsive[src='http://automationpractice.com/img/p/1/2/12-home_default.jpg']")
 	private WebElement quickView;
+	
+	@FindBy(xpath = "//span[normalize-space()='Add to cart']")
+	private WebElement itemOne;
+	
+	@FindBy(xpath = "//h2[normalize-space()='Product successfully added to your shopping cart']")
+	private WebElement txtItemOne;
+	
+	@FindBy(xpath = "//span[@title='Continue shopping']//span[1]")
+	private WebElement continueShipping;
+	
+	
+//	Add Item 2
+	@FindBy(css = "..replace-2x.img-responsive[src='http://automationpractice.com/img/p/1/0/10-home_default.jpg']")
+	private WebElement quickViewTwo;
+	
+	@FindBy(xpath = "//span[normalize-space()='Add to cart']")
+	private WebElement itemTwo;
+	
+	@FindBy(xpath = "//h2[normalize-space()='Product successfully added to your shopping cart']")
+	private WebElement txtItemTwo;
+	
 	
 	public void searchItem() {
 		searchItem.sendKeys("Dress");
@@ -46,9 +67,30 @@ public class AddItem {
 	
 	public void btnView() {
 		quickView.click();
-		
 	}
-
-
+	
+	public void btnAddCart() {
+		itemOne.click();
+	}
+	
+	public String getTxtItemOne() {
+		return txtItemOne.getText();
+	}
+	
+	public void continueShipping() {
+		continueShipping.click();
+	}
+	
+	public void btnViewTwo() {
+		quickViewTwo.click();
+	}
+	
+	public void btnAddCartTwo() {
+		quickView.click();
+	}
+	
+	public String getTxtItemTwo() {
+		return txtItemTwo.getText();
+	}
 
 }
